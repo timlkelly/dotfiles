@@ -1,0 +1,23 @@
+[user]
+  name = Tim Kelly
+  email = timlkelly@users.noreply.github.com
+  username = timlkelly
+
+[core]
+  editor = subl -w
+  excludesfile = /Users/tim/.gitignore_global
+
+[color]
+  status = auto
+  diff = auto
+
+[color "status"]
+  untrack = cyan
+  changed = green
+  added = yellow
+
+[alias]
+  co = checkout
+  amend = commit --verbose --amend
+  peel = "!f() { git reset --soft HEAD^; git diff --staged --name-only | xargs git reset HEAD ;}; f"
+  fancylog = log --oneline --graph --color --all --decorate

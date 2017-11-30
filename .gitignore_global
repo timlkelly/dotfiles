@@ -1,0 +1,15 @@
+*~
+._*
+.DS_Store
+.env
+.rspec
+
+/log
+/tmp
+/.bundle
+/.config
+/lib/bundler/man/
+/spec/tmp
+/vendor/bundle
+node_modules
+npm-debug.log

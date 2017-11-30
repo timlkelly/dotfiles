@@ -1,0 +1,97 @@
+{
+  "added_words":
+  [
+    "Javascript",
+    "javascript",
+    "json",
+    "tim",
+    "benchprep",
+    "watermelonexpress",
+    "github",
+    "checkbox"
+  ],
+  "alignment_chars":
+  [
+    "=",
+    ":"
+  ],
+  "always_show_minimap_viewport": true,
+  "args":
+  {
+  },
+  "auto_complete_commit_on_tab": true,
+  "binary_file_patterns":
+  [
+    "dist/*",
+    "node_modules/*",
+    "vendor/assets/components/*",
+    "tmp/cache/*",
+    "log/*",
+    "*.jpg",
+    "*.jpeg",
+    "*.png",
+    "*.gif",
+    "*.ttf",
+    "*.tga",
+    "*.dds",
+    "*.ico",
+    "*.eot",
+    "*.swf",
+    "*.jar",
+    "*.zip"
+  ],
+  "bold_folder_labels": true,
+  "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+  "command": "open_rspec_file",
+  "copy_with_empty_selection": true,
+  "detect_indentation": false,
+  "dictionary": "Packages/Language - English/en_US.dic",
+  "ensure_newline_at_eof_on_save": true,
+  "font_options":
+  [
+    "gray_antialias",
+    "subpixel_antialias"
+  ],
+  "font_size": 26.0,
+  "highlight_modified_tabs": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "ignored_words":
+  [
+    "Migrator",
+    "api",
+    "boardgame",
+    "csv",
+    "dir",
+    "pseudocode",
+    "refactored",
+    "singularize",
+    "strftime",
+    "v2"
+  ],
+  "indent_guide_options":
+  [
+    "draw_normal",
+    "draw_active"
+  ],
+  "index_files": true,
+  "keys":
+  [
+    "super+period"
+  ],
+  "line_padding_bottom": 0.5,
+  "line_padding_top": 0.5,
+  "overlay_scroll_bars": "enabled",
+  "save_on_focus_lost": true,
+  "scroll_past_end": true,
+  "shift_tab_unindent": true,
+  "spell_check": true,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true,
+  "use_simple_full_screen": true,
+  "word_wrap": false,
+  "wrap_width": 80
+}

@@ -16,6 +16,9 @@
   changed = green
   added = yellow
 
+[rerere]
+	enabled = true
+
 [alias]
   co = checkout
   amend = commit --verbose --amend

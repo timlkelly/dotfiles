@@ -3,6 +3,7 @@
 .DS_Store
 .env
 .rspec
+.swp
 
 /log
 /tmp
@@ -13,3 +14,4 @@
 /vendor/bundle
 node_modules
 npm-debug.log
+Thumbs.db

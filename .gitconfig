@@ -24,3 +24,4 @@
   amend = commit --verbose --amend
   peel = "!f() { git reset --soft HEAD^; git diff --staged --name-only | xargs git reset HEAD ;}; f"
   fancylog = log --oneline --graph --color --all --decorate
+  unstage = reset HEAD

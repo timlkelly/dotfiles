@@ -6,6 +6,7 @@
 [core]
   editor = subl -w
   excludesfile = /Users/tim/.gitignore_global
+	pager = less -+F -+X
 
 [color]
   status = auto
@@ -36,5 +37,12 @@
   rc = checkout release_candidate
   unstage = reset HEAD
   wip = commit -am 'WIP'
+
 [pager]
 	branch = false
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

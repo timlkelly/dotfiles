@@ -119,9 +119,11 @@ chunkc tiling::rule --owner Calculator --state float
 chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner Finder --state float
 chunkc tiling::rule --owner iTerm2 --name "visor" --state float
+chunkc tiling::rule --owner NordVPN --state float
 chunkc tiling::rule --owner Postico --state float
 chunkc tiling::rule --owner Preview --state float
 chunkc tiling::rule --owner \"1Password 7\" --state float
 chunkc tiling::rule --owner \"App Store\" --state float
+chunkc tiling::rule --owner \"VirtualBox\" --state float
 
 # rule iterm desktop fullscreen

@@ -26,8 +26,6 @@ export HISTCONTROL=ignoreboth:erasedups
 export MAIL_SAFE_EMAIL="tim@benchprep.com"
 export PROJECT_DIR="/Users/tim/development"
 
-source $PROJECT_DIR/infrastructure/shell-includes/helpers
-
 shopt -s cdspell
 # what's this one do?
 # set cd options
@@ -50,6 +48,9 @@ RESET="\[\033[0m\]"
 WHITE="\[\033[37m\]"
 YELLOW="\[\033[33m\]"
 
+kube_cluster="\$(kubectl config current-context | sed -E 's/benchprep-(.*)|(minikube)/$PURPLE\1\2$RESET/')"
+kube_cluster="\$(kubectl config current-context | sed -E 's/benchprep-(.*)\/.*|(minikube)/$PURPLE\1\2$RESET/')"
+
 git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -62,14 +63,11 @@ git_status() {
   if git diff --quiet 2>/dev/null>&2; then
     return 0
   else
-    echo " ✗"
+    echo " ✗ "
   fi
 }
 
-kube_cluster="\$(kubectl config current-context | sed -E 's/benchprep-(.*)|(minikube)/$PURPLE\1\2$RESET/')"
-kube_cluster="\$(kubectl config current-context | sed -E 's/benchprep-(.*)\/.*|(minikube)/$PURPLE\1\2$RESET/')"
-
-__prompt_command() {
+_prompt_command() {
   local RET="$?"
   PS1=""
 
@@ -79,120 +77,169 @@ __prompt_command() {
     PS1+="$GREEN"
   fi
 
-  PS1+="Ƌ $RESET"
   PS1+="$kube_cluster "
   PS1+="$LIGHT_GRAY$BOLD\W$RESET"
   PS1+="$GREEN\$(git_branch)"
-  PS1+="$YELLOW\$(git_status)" # this says its ok when changes added, seems strange
-  PS1+="$RESET:> "
-}
+  PS1+="$RESET"
 
-PROMPT_COMMAND=__prompt_command
-# PROMPT_COMMAND="__prompt_command; ${PROMPT_COMMAND}"
-
-########################################################################
-
-########################################################################
-
-# PROMPT_COMMAND='RET=$?;\
-#   BRANCH="";\
-#   ERRMSG="";\
-#   if [[ $RET != 0 ]]; then\
-#     ERRMSG=" $RET";\
-#   fi;\
-#   if git branch &>/dev/null; then\
-#     BRANCH=$(git branch 2>/dev/null | grep \* |  cut -d " " -f 2);\
-#   fi;'
-
-# PS1="$GREEN\u@\h $BLUE\W $CYAN$BRANCH$RED$ERRMSG \$ $LIGHT_GRAY"
-
-# PROMPT_COMMAND='
-#   RET=$?;\
-#   BRANCH="one";
-# '
-
-# export PS1="\W $RET $BRANCH"
-
-# function prompt_command {
-#   export PS1=$(~/bin/bash_prompt)
-# }
-
-#################################
-
-# function git_color {
-#   local git_status="$(git status 2> /dev/null)"
-
-#   if [[ ! $git_status =~ "working directory clean" ]]; then
-#     echo -e $COLOR_RED
-#   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-#     echo -e $COLOR_YELLOW
-#   elif [[ $git_status =~ "nothing to commit" ]]; then
-#     echo -e $COLOR_GREEN
-#   else
-#     echo -e $COLOR_OCHRE
-#   fi
-# }
-
-# function git_branch {
-#   local git_status="$(git status 2> /dev/null)"
-#   local on_branch="On branch ([^${IFS}]*)"
-#   local on_commit="HEAD detached at ([^${IFS}]*)"
-
-#   if [[ $git_status =~ $on_branch ]]; then
-#     local branch=${BASH_REMATCH[1]}
-#     echo "$branch"
-#   elif [[ $git_status =~ $on_commit ]]; then
-#     local commit=${BASH_REMATCH[1]}
-#     echo "$commit"
-#   fi
-# }
-
-#################################
-
-# A more colorful prompt
-# \[\e[0m\] resets the color to default color
-c_reset='\[\e[0m\]'
-#  \e[0;31m\ sets the color to red
-c_path='\[\e[0;31m\]'
-# \e[0;32m\ sets the color to green
-c_git_clean='\[\e[0;32m\]'
-# \e[0;31m\ sets the color to red
-c_git_dirty='\[\e[0;31m\]'
-
-
-# determines if the git branch you are on is clean or dirty
-git_prompt ()
-{
-  # Is this a git directory?
-  if ! git rev-parse --git-dir > /dev/null 2>&1; then
-    return 0
-  fi
-  # Grab working branch name
-  git_branch=$(git branch 2>/dev/null | sed -n '/^\*/s/^\* //p')
-  # Clean or dirty branch
-  if git diff --quiet 2>/dev/null >&2; then
-    git_color="${c_git_clean}"
+  if [ $RET != 0 ]; then
+    PS1+="$RED"
   else
-    git_color=${c_git_dirty}
+    PS1+="$GREEN"
   fi
-  echo " [$git_color$git_branch${c_reset}]"
+  PS1+="$BOLD> $RESET"
+  PS1+="$YELLOW\$(git_status)$RESET"
 }
 
-# ## Colors ##
-# aqua="\[\e[1;36m\]"
-# black="\[\e[0;30m\]"
-# blue="\[\e[1;34m\]"
-# green="\[\e[0;32m\]"
-# grey="\[\e[1;30m\]"
-# lavender="\[\e[1;35m\]"
-# lime="\[\e[1;32m\]"
-# lyellow="\[\e[1;33m\]"
-# navy="\[\e[0;34m\]"
-# pink="\[\e[1;31m\]"
-# purple="\[\e[0;35m\]"
-# red="\[\e[0;31m\]"
-# reset="\[\e[0m\]"
-# silver="\[\e[0;37m\]"
-# turquoise="\[\e[0;36m\]"
-# white="\[\e[1;37m\]"
-# yellow="\[\e[0;33m\]"
+PROMPT_COMMAND=_prompt_command
+
+####################################################################################################
+
+# Format status message for bash PS1
+header()
+{
+  if [ "$2" = "" ]; then
+    echo "${PURPLE}[${GREEN}$1${PURPLE}]"
+  else
+    echo "${PURPLE}[$1${GREEN}$2${PURPLE}]"
+  fi
+}
+
+git_repo() {
+  git remote -v 2>/dev/null | head -n1 | awk '{print $2}' | sed 's/.*\///' | sed 's/\.git//'
+}
+
+
+# Get git status for PS1 header
+try_get_git()
+{
+
+    none=""
+    if [ $(which git 1>/dev/null 2>/dev/null; echo $?) -ne '0' ]; then
+        echo ${none}
+        return
+    fi
+    if [ $(git branch 1>/dev/null 2>/dev/null; echo $?) -ne '0' ]; then
+        echo ${none}
+        return
+    fi
+    repo=$(git_repo)
+    branch=$(git branch 2>/dev/null | grep '*' | sed s/'* '//g)
+    status=$(git  2>/dev/null | grep '*' | sed s/'* '//g)
+
+    BRED="${BOLD}${RED}"
+    if ! git diff-files --quiet --ignore-submodules -- 2>/dev/null; then
+        if ! git diff origin/${branch}..HEAD --quiet --ignore-submodules >/dev/null 2>/dev/null; then
+            # uncommited, unpushed changes
+            echo "${PURPLE}[${GIT_SYMBOL}${BRED}${repo}/${branch}${OFF}${PURPLE}]"
+        else
+            # uncommited changes
+            echo "${PURPLE}[${GIT_SYMBOL}${GREEN}${repo}${BRED}/${branch}${OFF}${PURPLE}]"
+        fi
+    else
+        if ! git diff origin/${branch}..HEAD --quiet --ignore-submodules >/dev/null 2>/dev/null; then
+            # nothing to commit, unpushed commits
+            echo "${PURPLE}[${GIT_SYMBOL}${BRED}${repo}/${OFF}${GREEN}${branch}${OFF}${PURPLE}]"
+        else
+            # clean
+            echo "${PURPLE}[${GIT_SYMBOL}${GREEN}${repo}${OFF}${GREEN}/${branch}${OFF}${PURPLE}]"
+        fi
+    fi
+}
+
+
+# Format status message for bash PS1
+try_k8s_context()
+{
+    if [ "$KUBE_CONTEXT" != "" ]; then
+        echo "${PURPLE}[${K8S_SYMBOL}${GREEN}$KUBE_CONTEXT${PURPLE}]"
+    fi
+}
+
+
+# Format the return code for PS1
+return_code="""
+if [ \$? = 0 ]; then echo '';
+else echo $(header ${RED}${ERROR_SYMBOL}\$?); fi"""
+
+# Format the current directory for PS1
+current_dir()
+{
+    CWD="$(pwd -L)"
+    hdr=$(echo -e "${HDR}[${CWD}]")
+    if [ ${#hdr} -gt $(expr ${COLUMNS} + 150) ];
+    then
+        echo ""
+    fi
+    echo "$(header ${CWD_SYMBOL}${CWD})"
+}
+
+# Format the hostname directory for PS1
+get_hostname()
+{
+    if ! which scutil >/dev/null 2>/dev/null; then
+        echo $(hostname -s)
+    else
+        echo $(scutil --get ComputerName)
+    fi
+}
+
+# Format any venv name directory for PS1
+try_virtual_env()
+{
+    if [ "$VIRTUAL_ENV" != "" ]
+    then
+        echo "${PURPLE}[${VENV_SYMBOL}${GREEN}${VIRTUAL_ENV##*/}${PURPLE}]"
+    fi
+}
+
+try_get_user()
+{
+    echo '\u'
+}
+
+ps1_timer_start() {
+  timer=${timer:-$SECONDS}
+}
+
+ps1_timer_stop() {
+  ps1_timer_show=$(($SECONDS - $timer))
+  unset timer
+}
+
+try_get_ps1_timer()
+{
+    if [ "$ps1_timer_show" != "0" ]; then
+        echo "${PURPLE}[${TIMER_SYMBOL}${GREEN}${ps1_timer_show}${PURPLE}]"
+    fi
+}
+
+trap 'ps1_timer_start' DEBUG
+
+prompt_cmd() {
+    ps1_timer_stop
+    PS1=""
+    HDR="\n\n"
+    HDR="${HDR}"
+    HDR="${HDR}\$(${return_code})"
+    HDR="${HDR}$(try_get_ps1_timer)"
+    # HDR="${HDR}$(try_virtual_env)"
+    HDR="${HDR}$(try_k8s_context)"
+    HDR="${HDR}$(try_get_git)"
+    HDR="${HDR}$(current_dir)"
+    HDR="${HDR}\n"
+
+    PS1="${PS1}${HDR}"
+    PS1="${PS1}${OFF}${GREEN}$(try_get_user)"
+    PS1="${PS1}${OFF}${BOLD}${GREEN}@$(get_hostname)"
+    PS1="${PS1}${BOLD}${BLUE}(\\W)"
+    PS1="${PS1}${GREEN}$ ${OFF}"
+
+    # Add timestamp?
+    # tput sc
+    # tput cup $(($(get_cursor_row)+2)) $(($(tput cols)-29))
+    # echo -e "$(date)"
+    # tput rc
+}
+
+# PROMPT_COMMAND=prompt_cmd

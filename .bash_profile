@@ -2,6 +2,8 @@ source "${HOME}/.profile"
 
 export PATH="/opt/nginx/sbin:$PATH"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+source $PROJECT_DIR/infrastructure/shell-includes/helpers
+export KUBECONFIG=$HOME/.kube/config
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

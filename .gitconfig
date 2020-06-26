@@ -23,7 +23,6 @@
 [alias]
   amend = commit --verbose --amend
   co = checkout
-  cob = checkout -b
   commit = commit --verbose
   continue = rebase --continue
   dc = diff --cached
@@ -40,6 +39,9 @@
 
 [pager]
 	branch = false
+
+[push]
+  default = upstream
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f

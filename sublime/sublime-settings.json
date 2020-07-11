@@ -41,7 +41,6 @@
     "*.zip"
   ],
   "bold_folder_labels": true,
-  "color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
   "command": "open_rspec_file",
   "copy_with_empty_selection": true,
   "detect_indentation": false,

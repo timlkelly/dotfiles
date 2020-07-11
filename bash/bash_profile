@@ -1,0 +1,19 @@
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+# source "${HOME}/.profile"
+
+# BENCHPREP settings
+export MAIL_SAFE_EMAIL="tim@benchprep.com"
+export PROJECT_DIR="$HOME/development"
+
+# dont think i need this one anymore
+# export PATH="/opt/nginx/sbin:$PATH"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+
+source $PROJECT_DIR/infrastructure/shell-includes/helpers
+# export KUBECONFIG=$HOME/.kube/config # do i need you
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(rbenv init -)"

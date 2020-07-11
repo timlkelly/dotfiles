@@ -23,9 +23,7 @@ alias pr='pry-remote -w'
 
 # Kubernetes
 alias kube='kubectl'
-alias kcp='kube cp'
-alias kconnect='/Users/tim/development/infrastructure/bin/remote-shell'
-alias mk='export KUBECONFIG=/Users/tim/.minikube.yml'
+alias kcp='kubectl cp'
 
 # Benchprep
 alias berp="bundle exec primer restart"

@@ -1,31 +1,47 @@
-# Editor
+#!/bin/bash
+
+# editor
 alias e="subl"
+alias emacs="emacs -nw"
 alias vi="nvim"
 alias vim="nvim"
-alias emacs="emacs -nw"
 
-# Shell
+# shell
+alias cp="cp -iv"
+alias f="open -a Finder ./"
 alias ll="ls -lah"
 alias ls="ls -Gh"
-alias cp="cp -iv"
-alias mv="mv -iv"
 alias mkdir="mkdir -pv"
+alias mv="mv -iv"
 alias path='echo -e ${PATH//:/\\n}'
-alias f="open -a Finder ./"
 
-# Git
+# git
 alias gst="git status"
 
-# Rails / Ruby
+alias gs="git status"
+alias ga="git add -A ."
+alias gc="git commit"
+alias gb="git branch"
+alias gd="git diff"
+alias gco="git checkout"
+alias gp="git push"
+alias gl="git pull"
+alias gm="git merge"
+alias gg="git log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+# git log --all --graph --pretty=format:"%Cred%h%Creset %C(bold blue)%an%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset" --abbrev-commit
+
+# ruby / rails
 alias be="bundle exec"
 alias berc="bundle exec rails c"
-alias pr='pry-remote -w'
+alias pr="pry-remote -w"
 
-# Kubernetes
-alias kube='kubectl'
-alias kcp='kubectl cp'
+# kubernetes
+alias kcp="kubectl cp"
+alias kube="kubectl"
+alias logs="kubectl logs"
+alias secrets="kubectl get secrets"
 
-# Benchprep
+# benchprep
 alias berp="bundle exec primer restart"
 alias restart="passenger-config restart-app"
 

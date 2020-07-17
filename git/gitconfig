@@ -1,21 +1,21 @@
 [user]
-  name = Tim Kelly
   email = timlkelly@users.noreply.github.com
+  name = Tim Kelly
   username = timlkelly
 
 [core]
   editor = subl -w
   excludesfile = /Users/tim/.gitignore_global
-	pager = less -+F -+X
+  pager = less -+FX
 
 [color]
-  status = auto
   diff = auto
+  status = auto
 
 [color "status"]
-  untrack = cyan
-  changed = green
   added = yellow
+  changed = green
+  untrack = cyan
 
 [rerere]
   enabled = true
@@ -31,20 +31,19 @@
   graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   l = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-  master = checkout master
   peel = "!f() { git reset --soft HEAD^; git diff --staged --name-only | xargs git reset HEAD ;}; f"
   rc = checkout release_candidate
   unstage = reset HEAD
   wip = commit -am 'WIP'
 
 [pager]
-	branch = false
+  branch = false
 
 [push]
   default = upstream
 
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+  clean = git-lfs clean -- %f
+  process = git-lfs filter-process
+  required = true
+  smudge = git-lfs smudge -- %f

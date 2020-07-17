@@ -7,5 +7,4 @@
 \set HISTFILE ~/.psql_history- :DBNAME
 \set HISTCONTROL ignoredups
 \pset null [null]
-\set explanalyze 'explain analyze '
 \unset QUIET

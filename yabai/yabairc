@@ -13,7 +13,7 @@ yabai -m config active_window_opacity          1.0
 yabai -m config normal_window_opacity          1.0 # 0.95
 
 yabai -m config window_border                  on
-yabai -m config window_border_width            4
+yabai -m config window_border_width            5
 yabai -m config active_window_border_color     0xff7ebad2
 yabai -m config normal_window_border_color     0xff194052
 yabai -m config insert_feedback_color          0xaad75f5f
@@ -42,11 +42,11 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="iTerm2"               border=off
 
 # window rules
-yabai -m rule --add app=Dash    space=7
-# yabai -m rule --add app=Chrome  space=2
-yabai -m rule --add app=Slack   space=1
-yabai -m rule --add app=Spotify space=3
-yabai -m rule --add app="Sublime" space=5
+yabai -m rule --add app=Dash            space=7
+# yabai -m rule --add app=Chrome          space=2
+yabai -m rule --add app=Slack           space=1
+yabai -m rule --add app=Spotify         space=3
+yabai -m rule --add app="Sublime"       space=5
 yabai -m rule --add app="Sublime Merge" space=8
 
 # signals

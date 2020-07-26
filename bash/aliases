@@ -7,9 +7,12 @@ alias vi="nvim"
 alias vim="nvim"
 
 # shell
+alias ..="cd ../"
+alias ...="cd ../../"
 alias cp="cp -iv"
 alias f="open -a Finder ./"
-alias ll="ls -lah"
+alias less="less -FSRXc"
+alias ll="ls -lAh"
 alias ls="ls -Gh"
 alias mkdir="mkdir -pv"
 alias mv="mv -iv"
@@ -18,16 +21,14 @@ alias path='echo -e ${PATH//:/\\n}'
 # git
 alias gst="git status"
 
-alias gs="git status"
-alias ga="git add -A ."
-alias gc="git commit"
 alias gb="git branch"
-alias gd="git diff"
+alias gc="git commit"
 alias gco="git checkout"
-alias gp="git push"
-alias gl="git pull"
-alias gm="git merge"
+alias gd="git diff"
 alias gg="git log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gs="git status"
+
+# alias gp="git push"
 # git log --all --graph --pretty=format:"%Cred%h%Creset %C(bold blue)%an%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset" --abbrev-commit
 
 # ruby / rails
@@ -43,6 +44,7 @@ alias secrets="kubectl get secrets"
 
 # benchprep
 alias berp="bundle exec primer restart"
+# update for puma
 alias restart="passenger-config restart-app"
 
 alias api="cd ~/development/benchprep-v2"

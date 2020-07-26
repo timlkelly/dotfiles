@@ -11,6 +11,8 @@ export EDITOR="subl"
 export HISTCONTROL=ignoreboth:erasedups
 
 shopt -s cdspell
+# append history file
+shopt -s histappend
 
 # edit this folder
 alias dot="cd $DOTFILES_PATH"

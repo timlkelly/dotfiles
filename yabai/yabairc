@@ -42,12 +42,12 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="iTerm2"               border=off
 
 # window rules
-yabai -m rule --add app=Dash            space=7
-# yabai -m rule --add app=Chrome          space=2
-yabai -m rule --add app=Slack           space=1
-yabai -m rule --add app=Spotify         space=3
-yabai -m rule --add app="Sublime"       space=5
-yabai -m rule --add app="Sublime Merge" space=8
+yabai -m rule --add app=Dash                   space=7
+# yabai -m rule --add app=Chrome                 space=2
+yabai -m rule --add app=Slack                  space=1
+yabai -m rule --add app=Spotify                space=3
+yabai -m rule --add app="Sublime"              space=5
+yabai -m rule --add app="Sublime Merge"        space=8
 
 # signals
 yabai -m signal --add event=window_destroyed       action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"

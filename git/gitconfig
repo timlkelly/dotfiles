@@ -1,25 +1,3 @@
-[user]
-  email = timlkelly@users.noreply.github.com
-  name = Tim Kelly
-  username = timlkelly
-
-[core]
-  editor = subl -w
-  excludesfile = /Users/tim/.gitignore_global
-  pager = less -+FX
-
-[color]
-  diff = auto
-  status = auto
-
-[color "status"]
-  added = yellow
-  changed = green
-  untrack = cyan
-
-[rerere]
-  enabled = true
-
 [alias]
   amend = commit --verbose --amend
   co = checkout
@@ -36,14 +14,36 @@
   unstage = reset HEAD
   wip = commit -am 'WIP'
 
-[pager]
-  branch = false
+[color]
+  diff = auto
+  status = auto
 
-[push]
-  default = upstream
+[color "status"]
+  added = yellow
+  changed = green
+  untrack = cyan
+
+[core]
+  editor = subl -w
+  excludesfile = /Users/tim/.gitignore_global
+  pager = less -+FX
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
   process = git-lfs filter-process
   required = true
   smudge = git-lfs smudge -- %f
+
+[pager]
+  branch = false
+
+[push]
+  default = upstream
+
+[rerere]
+  enabled = true
+
+[user]
+  email = timlkelly@users.noreply.github.com
+  name = Tim Kelly
+  username = timlkelly

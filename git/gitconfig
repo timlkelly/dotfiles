@@ -34,8 +34,14 @@
   required = true
   smudge = git-lfs smudge -- %f
 
+[init]
+  defaultBranch = main
+
 [pager]
   branch = false
+
+[pull]
+  ff = only
 
 [push]
   default = upstream

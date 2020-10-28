@@ -19,17 +19,13 @@ alias mv="mv -iv"
 alias path='echo -e ${PATH//:/\\n}'
 
 # git
-alias gst="git status"
-
 alias gb="git branch"
 alias gc="git commit"
 alias gco="git checkout"
 alias gd="git diff"
-alias gg="git log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gg="git log --abbrev-commit --graph --pretty=format:'%Cred%h%Creset %C(bold blue)%an%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset'"
 alias gs="git status"
-
-# alias gp="git push"
-# git log --all --graph --pretty=format:"%Cred%h%Creset %C(bold blue)%an%Creset :%C(yellow)%d%Creset %s %Cgreen(%cr) %Creset" --abbrev-commit
+alias gst="git status"
 
 # ruby / rails
 alias be="bundle exec"
@@ -47,16 +43,16 @@ alias berp="bundle exec primer restart"
 # update for puma
 alias restart="passenger-config restart-app"
 
-alias api="cd ~/development/benchprep-v2"
-alias assets="cd ~/development/benchprep-assets"
-alias blueprint="cd ~/development/benchprep-course-publisher"
-alias boost="cd ~/development/benchprep-instructor-dashboard"
-alias development="cd ~/development"
-alias infrastructure="cd ~/development/infrastructure"
-alias marketing="cd ~/development/benchprep-marketing"
-alias reporting="cd ~/development/benchprep_reporting_api"
-alias sso="cd ~/development/benchprep-sso"
-alias support="cd ~/development/benchprep-support"
-alias teachers="cd ~/development/benchprep-teachers"
-alias v2="cd ~/development/benchprep-v2"
-alias webapp="cd ~/development/benchprep-webapp"
+alias api="cd ~/development/benchprep/benchprep-v2"
+alias assets="cd ~/development/benchprep/benchprep-assets"
+alias blueprint="cd ~/development/benchprep/benchprep-course-publisher"
+alias boost="cd ~/development/benchprep/benchprep-instructor-dashboard"
+alias development="cd ~/development"benchprep/
+alias infrastructure="cd ~/development/benchprep/infrastructure"
+alias marketing="cd ~/development/benchprep/benchprep-marketing"
+alias reporting="cd ~/development/benchprep/benchprep_reporting_api"
+alias sso="cd ~/development/benchprep/benchprep-sso"
+alias support="cd ~/development/benchprep/benchprep-support"
+alias teachers="cd ~/development/benchprep/benchprep-teachers"
+alias v2="cd ~/development/benchprep/benchprep-v2"
+alias webapp="cd ~/development/benchprep/benchprep-webapp"

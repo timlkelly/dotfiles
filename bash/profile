@@ -10,7 +10,6 @@ BASH_SRC_PATH=$DOTFILES_PATH/bash
 export EDITOR="subl"
 export HISTCONTROL=ignoreboth:erasedups
 
-shopt -s cdspell
 # append history file
 shopt -s histappend
 

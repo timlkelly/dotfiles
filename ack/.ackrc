@@ -3,7 +3,6 @@
 --group
 --nocss
 --nominifiedjs
---show-types
 --smart-case
 --sort-files
 
@@ -26,6 +25,7 @@
 --ignore-directory=is:tmp
 --ignore-directory=is:vendor
 --ignore-directory=node_modules
+--ignore-directory=public
 
 --ignore-file=ext:bak
 --ignore-file=ext:pdf

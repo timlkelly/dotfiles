@@ -23,10 +23,11 @@ yabai -m config auto_balance                   off # on
 yabai -m config mouse_modifier                 fn
 yabai -m config mouse_action1                  move
 yabai -m config mouse_action2                  resize
+yabai -m config mouse_drop_action              stack
 
-# general space settings
+# space settings
 yabai -m config layout                         bsp
-yabai -m config external_bar                   off:15:0
+yabai -m config external_bar                   off:25:0
 yabai -m config bottom_padding                 15
 yabai -m config left_padding                   15
 yabai -m config right_padding                  15
@@ -35,19 +36,15 @@ yabai -m config window_gap                     10
 
 # app rules
 yabai -m rule --add app="^1Password 7$"        manage=off
-yabai -m rule --add app="Emacs"                manage=on
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="Alacritty"            border=off
+# yabai -m rule --add app="Emacs"                manage=on
 yabai -m rule --add app="Finder"               manage=off
 yabai -m rule --add app="NordVPN"              manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="iTerm2"               border=off
 
 # window rules
-yabai -m rule --add app=Dash                   space=7
-# yabai -m rule --add app=Chrome                 space=2
-yabai -m rule --add app=Slack                  space=1
-yabai -m rule --add app=Spotify                space=3
-yabai -m rule --add app="Sublime"              space=5
-yabai -m rule --add app="Sublime Merge"        space=8
+yabai -m rule --add app=Slack                  space=5
+yabai -m rule --add app=Spotify                space=6
 
 # signals
 yabai -m signal --add event=window_destroyed       action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"

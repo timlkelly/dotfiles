@@ -2,7 +2,6 @@
 ._*
 .DS_Store
 .env
-.rspec
 .swp
 
 /log

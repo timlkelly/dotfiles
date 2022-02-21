@@ -43,6 +43,7 @@ yabai -m rule --add app="Finder"               manage=off
 yabai -m rule --add app="NordVPN"              manage=off
 
 # window rules
+yabai -m rule --add app=Dash                   space=3
 yabai -m rule --add app=Slack                  space=5
 yabai -m rule --add app=Spotify                space=6
 

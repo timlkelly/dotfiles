@@ -82,6 +82,9 @@ shift + cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty &> /
 # restart yabai
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
+# noop dock hide toggle
+cmd + alt - d : :
+
 # focus window
 alt - x : yabai -m window --focus recent
 alt - h : yabai -m window --focus west

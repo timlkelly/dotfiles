@@ -37,22 +37,3 @@ alias kcp="kubectl cp"
 alias kube="kubectl"
 alias logs="kubectl logs"
 alias secrets="kubectl get secrets"
-
-# benchprep
-alias berp="bundle exec primer restart"
-# update for puma
-alias restart="passenger-config restart-app"
-
-alias api="cd ~/development/benchprep/benchprep-v2"
-alias assets="cd ~/development/benchprep/benchprep-assets"
-alias blueprint="cd ~/development/benchprep/benchprep-course-publisher"
-alias boost="cd ~/development/benchprep/benchprep-instructor-dashboard"
-alias development="cd ~/development"benchprep/
-alias infrastructure="cd ~/development/benchprep/infrastructure"
-alias marketing="cd ~/development/benchprep/benchprep-marketing"
-alias reporting="cd ~/development/benchprep/benchprep_reporting_api"
-alias sso="cd ~/development/benchprep/benchprep-sso"
-alias support="cd ~/development/benchprep/benchprep-support"
-alias teachers="cd ~/development/benchprep/benchprep-teachers"
-alias v2="cd ~/development/benchprep/benchprep-v2"
-alias webapp="cd ~/development/benchprep/benchprep-webapp"

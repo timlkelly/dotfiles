@@ -80,7 +80,7 @@
 shift + cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty &> /dev/null
 
 # restart yabai
-ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + alt + cmd - r : yabai --restart-service
 
 # noop dock hide toggle
 cmd + alt - d : :

@@ -1,0 +1,14 @@
+[cursor.style]
+blinking = "Off"
+shape = "Underline"
+
+[selection]
+save_to_clipboard = true
+
+[window]
+decorations = "none"
+opacity = 0.9
+
+[window.padding]
+x = 5
+y = 5
